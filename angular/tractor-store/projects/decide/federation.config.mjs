@@ -1,4 +1,4 @@
-import {withNativeFederation, shareAll} from '@angular-architects/native-federation-v4/config';
+import {withNativeFederation, fromPackageJson} from '@angular-architects/native-federation/config';
 
 export default withNativeFederation({
 
@@ -7,16 +7,9 @@ export default withNativeFederation({
     'mfe-product': './projects/decide/src/features/product/bootstrap.ts',
     'nav-contribution': './projects/decide/src/core/nav-contribution.ts',
   },
-  shared: {
-    ...shareAll(
-      { singleton: true, strictVersion: true, requiredVersion: 'auto', build: 'package' },
-      {
-        overrides: {
-          '@angular/core': { singleton: true, strictVersion: true, requiredVersion: 'auto', build: 'package', includeSecondaries: {keepAll: true}},
-        }
-      }
-    ),
-  },
+  shared: fromPackageJson({ singleton: true, strictVersion: true, requiredVersion: 'auto', build: 'package' })
+    .patch(['@angular/core'], {includeSecondaries: {keepAll: true}})
+    .get(),
   sharedMappings: ["@ng-internal/event-bus", "@ng-internal/navigation", "@ng-internal/url"],
   skip: [
     'rxjs/ajax',
@@ -27,6 +20,7 @@ export default withNativeFederation({
 
   features: {
     denseChunking: true,
+    denseExternals: true,
     integrityHashes: true
   }
 });

@@ -1,18 +1,10 @@
-import {withNativeFederation, shareAll} from '@angular-architects/native-federation-v4/config';
+import {withNativeFederation, fromPackageJson} from '@angular-architects/native-federation/config';
 
 export default withNativeFederation({
   name: "host",
-  shared: {
-    ...shareAll(
-      { singleton: true, strictVersion: true, requiredVersion: 'auto', build: 'package' },
-      {
-        overrides: {
-          '@angular/core': { singleton: true, strictVersion: true, requiredVersion: 'auto', build: 'package',  includeSecondaries: {keepAll: true}},
-
-        }
-      }
-    ),
-  },
+  shared: fromPackageJson({ singleton: true, strictVersion: true, requiredVersion: 'auto', build: 'package' })
+    .patch(['@angular/core'], {includeSecondaries: {keepAll: true}})
+    .get(),
   sharedMappings: ["@ng-internal/event-bus", "@ng-internal/navigation", "@ng-internal/url", "@ng-internal/ui", "@ng-internal/logging"],
   skip: [
     'rxjs/ajax', 
@@ -22,10 +14,11 @@ export default withNativeFederation({
     // Add further packages you don't need at runtime
   ],
 
-  features: { 
+  features: {
     mappingVersion: true,   // by default now
     ignoreUnusedDeps: true, // by default now
     denseChunking: true,
+    denseExternals: true,
     integrityHashes: true
   }
 });

@@ -1,4 +1,4 @@
-import {withNativeFederation, shareAll} from '@angular-architects/native-federation/config';
+import {withNativeFederation, fromPackageJson} from '@angular-architects/native-federation/config';
 
 export default withNativeFederation({
 
@@ -9,17 +9,10 @@ export default withNativeFederation({
     './Bootstrap': './projects/mfe3/src/bootstrap.ts',
   },
 
-  shared: {
-    ...shareAll(
-      { singleton: true, strictVersion: true, requiredVersion: 'auto', build: 'package' },
-      {
-        overrides: {
-          '@angular/core': { singleton: true, strictVersion: true, requiredVersion: 'auto', build: 'package',  includeSecondaries: {keepAll: true}},
+  shared: fromPackageJson({ singleton: true, strictVersion: true, requiredVersion: 'auto', build: 'package' })
+    .patch(['@angular/core'], {includeSecondaries: {keepAll: true}})
+    .get(),
 
-        }
-      }
-    ),
-  },
   skip: [
     'rxjs/ajax', 
     'rxjs/fetch',
@@ -29,6 +22,7 @@ export default withNativeFederation({
   ],
   features: { 
     denseChunking: true,
-    integrityHashes: true
+    integrityHashes: true,
+    denseExternals: true
   }
 });

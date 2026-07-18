@@ -23,6 +23,7 @@ initFederation(manifest, {
     latestSharedExternal: false,
     overrideCachedRemotesIfURLMatches: true,
   },
+  sse: true,
 })
   .then((nf: NativeFederationResult) => {
     console.log(nf.config);

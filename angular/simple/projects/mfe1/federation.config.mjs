@@ -1,4 +1,4 @@
-import {withNativeFederation, shareAll} from '@angular-architects/native-federation/config';
+import {withNativeFederation, fromPackageJson} from '@angular-architects/native-federation/config';
 
 export default withNativeFederation({
 
@@ -6,17 +6,10 @@ export default withNativeFederation({
   exposes: {
     './Component': './projects/mfe1/src/bootstrap.ts',
   },
-  shared: {
-    ...shareAll(
-      { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-      {
-        overrides: {
-          // the includeSecondaries is an opt-out of 'ignoreUnusedDeps' So all of @angular/core is shared to prevent mismatches
-          '@angular/core': { singleton: true, strictVersion: true, requiredVersion: 'auto', includeSecondaries: {keepAll: true}},
-        }
-      }
-    ),
-  },
+  shared: fromPackageJson({ singleton: true, strictVersion: true, requiredVersion: 'auto', build: 'package' })
+    .patch(['@angular/core'], {includeSecondaries: {keepAll: true}})
+    .get(),
+
   skip: [
     'rxjs/ajax', 
     'rxjs/fetch',
@@ -28,6 +21,7 @@ export default withNativeFederation({
   features: { 
     ignoreUnusedDeps: true, // by default now
     denseChunking: true,
+    denseExternals: true,
     integrityHashes: true
   }
 });

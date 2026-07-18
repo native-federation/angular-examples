@@ -24,9 +24,9 @@
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
-    "@angular-architects/native-federation": "~22.0.2",
-    "@softarc/native-federation-orchestrator": "^4.1.0",
-    "@softarc/native-federation": "^4.1.2",
+    "@angular-architects/native-federation": "~22.0.6",
+    "@softarc/native-federation-orchestrator": "^4.5.2",
+    "@softarc/native-federation": "^4.3.2",
     "@angular/build": "^22.0.0",
     "@angular/cli": "^22.0.0",
     "@angular/compiler-cli": "^22.0.0",

@@ -15,7 +15,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-architects/native-federation-v4:build",
+          "builder": "@angular-architects/native-federation:build",
           "options": {
 						"cacheExternalArtifacts": true,
             "tsConfig": "projects/host/tsconfig.federation.json",
@@ -35,7 +35,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-architects/native-federation-v4:build",
+          "builder": "@angular-architects/native-federation:build",
           "options": {
             "target": "host:serve-original:development",
             "tsConfig": "projects/host/tsconfig.federation.json",
@@ -133,7 +133,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-architects/native-federation-v4:build",
+          "builder": "@angular-architects/native-federation:build",
           "options": {
             "projectName": "explore",
             "tsConfig": "projects/explore/tsconfig.federation.json",
@@ -154,7 +154,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-architects/native-federation-v4:build",
+          "builder": "@angular-architects/native-federation:build",
           "options": {
             "projectName": "explore",
             "tsConfig": "projects/explore/tsconfig.federation.json",
@@ -250,7 +250,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-architects/native-federation-v4:build",
+          "builder": "@angular-architects/native-federation:build",
           "options": {
             "projectName": "decide",
             "tsConfig": "projects/decide/tsconfig.federation.json",
@@ -271,7 +271,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-architects/native-federation-v4:build",
+          "builder": "@angular-architects/native-federation:build",
           "options": {
             "projectName": "decide",
             "tsConfig": "projects/decide/tsconfig.federation.json",
@@ -367,7 +367,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-architects/native-federation-v4:build",
+          "builder": "@angular-architects/native-federation:build",
           "options": {
             "projectName": "checkout",
             "tsConfig": "projects/checkout/tsconfig.federation.json",
@@ -388,7 +388,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-architects/native-federation-v4:build",
+          "builder": "@angular-architects/native-federation:build",
           "options": {
             "projectName": "checkout",
             "tsConfig": "projects/checkout/tsconfig.federation.json",
