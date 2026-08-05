@@ -8,6 +8,6 @@ packages:
   - projects/*
 minimumReleaseAgeExclude:
   - '@softarc/native-federation-esbuild@4.0.0'
-  - '@softarc/native-federation-orchestrator@4.2.1 || 4.5.2'
+  - '@softarc/native-federation-orchestrator@4.2.1 || 4.5.2 || 4.6.0'
   - '@angular-architects/native-federation@22.0.6'
   - '@softarc/native-federation@4.3.2'

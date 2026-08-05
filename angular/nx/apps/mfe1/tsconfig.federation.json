@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../out-tsc/app",
+    "types": []
+  },
+  "files": [
+    "src/bootstrap.ts"
+  ],
+  "include": [
+    "src/**/*.d.ts",
+    "../../libs/internal/src/logging/index.ts"
+  ]
+}

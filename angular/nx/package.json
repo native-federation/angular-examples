@@ -1,13 +1,14 @@
 {
-  "name": "mfe-test",
+  "name": "mfe-test-nx",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start:all": "concurrently \"ng serve mfe1\" \"ng serve mfe2\" \"ng serve mfe3\" \"ng serve host\"",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build mfe1 --watch --configuration development",
-    "test": "ng test"
+    "nx": "nx",
+    "start": "nx serve host",
+    "start:all": "nx run-many -t serve -p host mfe1 mfe2 mfe3 --parallel=4",
+    "build": "nx run-many -t build",
+    "watch": "nx build mfe1 --configuration development --watch",
+    "test": "nx run-many -t test",
+    "graph": "nx graph"
   },
   "private": true,
   "dependencies": {
@@ -24,20 +25,21 @@
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
-    "@angular-architects/native-federation": "~22.0.0",
+    "@angular-architects/native-federation": "22.1.0-RC1",
     "@softarc/native-federation-orchestrator": "^4.6.0",
     "@softarc/native-federation": "^4.4.0",
     "@angular/build": "~22.0.0",
     "@angular/cli": "~22.0.0",
     "@angular/compiler-cli": "~22.0.0",
+    "@nx/angular": "^23.1.1",
     "@types/jasmine": "~5.1.0",
-    "concurrently": "^9.2.0",
     "jasmine-core": "~5.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "nx": "^23.1.1",
     "typescript": "~6.0.0"
   }
 }

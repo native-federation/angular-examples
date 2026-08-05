@@ -1,8 +1,10 @@
 allowBuilds:
   '@parcel/watcher': true
   esbuild: true
+  less: false
   lmdb: true
   msgpackr-extract: true
+  nx: true
 nodeLinker: 'hoisted'
 minimumReleaseAge: 4320
 minimumReleaseAgeExclude:
