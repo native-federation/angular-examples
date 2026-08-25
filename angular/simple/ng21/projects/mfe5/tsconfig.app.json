@@ -5,11 +5,10 @@
     "types": []
   },
   "files": [
-    "../../libs/internal/src/logging/index.ts",
+    "src/app/app.component.ts",
     "src/bootstrap.ts"
   ],
   "include": [
-    "src/**/*.d.ts",
-    "../../libs/internal/src/logging/index.ts"
+    "src/**/*.d.ts"
   ]
 }

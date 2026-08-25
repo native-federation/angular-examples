@@ -24,5 +24,8 @@ export class AppComponent {
   showMfe4() {
     this.router.navigate(['/mfe4']);
   }
+  showMfe5() {
+    this.router.navigate(['/mfe5']);
+  }
   title = 'host';
 }

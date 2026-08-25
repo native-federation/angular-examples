@@ -21,4 +21,11 @@ export const routes = ({ initRemoteEntry }: NativeFederationResult): Routes => [
         (m) => m.LoadingShellComponent,
       ),
   },
+  {
+    path: 'mfe5',
+    loadComponent: () =>
+      import('./loading-shell-v21/loading-shell-v21.component').then(
+        (m) => m.LoadingShellV21Component,
+      ),
+  },
 ];

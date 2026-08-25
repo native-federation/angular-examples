@@ -1,0 +1,12 @@
+# Standalone from the v22 workspace in `..`: this remote pins its own Angular 21 tree.
+# Mirrors ../pnpm-workspace.yaml so `pnpm install` needs no --ignore-workspace here.
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+  lmdb: true
+  msgpackr-extract: true
+nodeLinker: 'hoisted'
+minimumReleaseAge: 4320
+minimumReleaseAgeExclude:
+  - "@angular-architects/*"
+  - "@softarc/*"
